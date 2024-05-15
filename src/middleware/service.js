@@ -18,6 +18,14 @@ export const checkExistingUserToken = async ({ resetPasswordToken: token }) => {
   return User.findOne({ resetPasswordToken: token });
 };
 
+export const findNewsById = async (id) => {
+  return News.findById(id);
+};
+
+export const findAllNews = async () => {
+  return News.find();
+};
+
 
 
 

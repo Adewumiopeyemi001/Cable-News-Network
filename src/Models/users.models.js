@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    versionKey: false,
+    versionKey: false, // Ensure versionKey is set to false
   }
 );
 userSchema.pre("save", async function (next) {
