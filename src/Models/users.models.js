@@ -17,6 +17,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
+      validate: {
+        validator: function (value) {
+          // Custom validator function to check for @ symbol in the email
+          return /\S+@\S+\.\S+/.test(value); // This regex checks for @ in the email
+        },
+        message: "Please enter a valid email address", // Validation error message
+      },
     },
     password: {
       type: String,
