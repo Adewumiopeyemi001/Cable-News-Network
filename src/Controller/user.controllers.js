@@ -65,7 +65,9 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
+    if (!email ||!password) {
+      return errorResMsg(res, 400, "Please enter your email address");
+    }
 
     const user = await checkExistingUser(email);
     
