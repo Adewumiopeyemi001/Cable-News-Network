@@ -19,11 +19,7 @@ export const signup = async (req, res) => {
         const { firstName, lastName, email, password, role } = req.body;
 
         const profilePicture = req.file;
-      if (!profilePicture) {
-          return errorResMsg(res, 400, "Profile picture is required");
-        }
-      const result = await cloudinary.v2.uploader.upload(profilePicture.path);
-      
+     
         if (!firstName || !lastName || !email || !password  || !role) {
             return errorResMsg(res, 400, "Please fill all the fields");
         }
@@ -31,6 +27,11 @@ export const signup = async (req, res) => {
         if (existingUser) {
             return errorResMsg(res, 400, "User already exists");
       }
+       if (!profilePicture) {
+         return errorResMsg(res, 400, "Profile picture is required");
+       }
+       const result = await cloudinary.v2.uploader.upload(profilePicture.path);
+      
         const newUser = await User.create({
           firstName,
           lastName,
@@ -66,7 +67,7 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email ||!password) {
-      return errorResMsg(res, 400, "Please enter your email address");
+      return errorResMsg(res, 400, "Please enter your email address and password");
     }
 
     const user = await checkExistingUser(email);

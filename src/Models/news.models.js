@@ -10,8 +10,8 @@ const newsSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      min: 5,
-      max: 200,
+      minLength: 5,
+      maxLength: 200,
     },
     newsContent: {
       type: String,
