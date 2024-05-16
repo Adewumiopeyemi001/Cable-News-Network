@@ -108,9 +108,6 @@ export const newsPicture = async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: "No file uploaded" });
     }
-    if (!token) {
-      return errorResMsg(res, 400, "No token provided");
-    }
 
     if (!user || user.role !== 2) {
       return errorResMsg(
