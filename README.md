@@ -37,7 +37,7 @@ This is the backend API for the CNN news website, designed to provide a modern n
 
 ## Dependencies
 
-```json
+
 {
   "bcrypt": "^5.1.1",
   "bcryptjs": "^2.4.3",
