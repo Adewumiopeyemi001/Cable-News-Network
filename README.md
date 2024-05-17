@@ -37,7 +37,7 @@ This is the backend API for the CNN news website, designed to provide a modern n
 
 ## Dependencies
 
-
+```json
 {
   "bcrypt": "^5.1.1",
   "bcryptjs": "^2.4.3",
@@ -55,7 +55,6 @@ This is the backend API for the CNN news website, designed to provide a modern n
   "uuid": "^9.0.1"
 }
 
-This can be seen in the package.json folder
 
 
 
