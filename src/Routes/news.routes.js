@@ -21,7 +21,7 @@ router.put("/updatenews/:id", auth, updateNews);
 router.delete("/deletenews/:id", auth, deleteNews);
 router.get("/getnews/:id", auth, getNews);
 router.get("/getallnews", auth, getAllNews);
-router.get("/search",auth, searchNewsByTitle);
+router.get("/search", auth, searchNewsByTitle);
 
 
 export default router;

@@ -62,6 +62,16 @@ export const updateNews = async (req, res) => {
     if (!title || !newsContent) {
       return errorResMsg(res, 400, "Title and News content must not be empty");
     }
+
+    // Check if the news exists and is created by the current user
+    const news = await News.findOne({ _id: id, createdBy: user._id });
+    if (!news) {
+      return errorResMsg(
+        res,
+        404,
+        "News not found or you do not have permission to edit this news"
+      );
+    }
     // Check if the news exists and update
     const updatedNews = await News.findByIdAndUpdate(
       { _id: id },
@@ -96,17 +106,20 @@ export const newsPicture = async (req, res) => {
     const user = req.user;
     const picture = req.file;
     
-    const news = await News.findOne({ _id: req.params.id });
-    if (!news) {
-      return errorResMsg(res, 400, "News not found");
-    }
-
     if (!picture) {
       return errorResMsg(res, 400, "Picture is required ");
     }
-
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded" });
+    // Check if the news exists and is created by the current user
+    const news = await News.findOne({
+      _id: req.params.id,
+      createdBy: user._id,
+    });
+    if (!news) {
+      return errorResMsg(
+        res,
+        404,
+        "News not found or you do not have permission to edit this news"
+      );
     }
 
     if (!user || user.role !== 2) {
@@ -146,17 +159,8 @@ export const newsVideo = async (req, res) => {
     const user = req.user;
     const video = req.file;
 
-    const news = await News.findOne({ _id: req.params.id });
-    if (!news) {
-      return errorResMsg(res, 400, "News not found");
-    }
-
     if (!video) {
       return errorResMsg(res, 400, "Video is required ");
-    }
-
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded" });
     }
 
     if (!user || user.role !== 2) {
@@ -166,6 +170,18 @@ export const newsVideo = async (req, res) => {
         "Access forbidden. Only Chief Editors can upload a video."
       );
     }
+
+     const news = await News.findOne({
+       _id: req.params.id,
+       createdBy: user._id,
+     });
+     if (!news) {
+       return errorResMsg(
+         res,
+         404,
+         "News not found or you do not have permission to edit this news"
+       );
+     }
 
     const result = await cloudinary.v2.uploader.upload(req.file.path, {
       resource_type: "video",
@@ -202,6 +218,15 @@ export const deleteNews = async (req, res) => {
         "Access forbidden. Only Chief Editors can delete news."
       );
     }
+     const news = await News.findOne({ _id: id, createdBy: user._id });
+     if (!news) {
+       return errorResMsg(
+         res,
+         404,
+         "News not found or you do not have permission to delete this news"
+       );
+    }
+    // Check if the news exists and delete
     const deletedNews = await News.findByIdAndDelete({ _id: id });
     if (!deletedNews) {
       return errorResMsg(res, 404, "News not found");
