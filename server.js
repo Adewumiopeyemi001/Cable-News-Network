@@ -13,7 +13,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the latest News");
+  res.send("Welcome to Cable News Network");
 });
 
 app.use('/api/users', usersRouter);
