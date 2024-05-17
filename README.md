@@ -19,27 +19,19 @@ This is the backend API for the CNN news website, designed to provide a modern n
 
 -----
 
-## My Stack
+## Tools and Technologies
 1. **VSCode**: Integrated Development Environment (IDE) for coding.
 2. **MongoDB**: NoSQL database for storing application data.
 3. **Node.js**: JavaScript runtime for server-side programming.
 4. **Express.js**: Web application framework for Node.js.
 5. **Postman**: Tool for API testing and documentation.
-
------
-
-## Technologies Used
-
-- **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
-- **Express.js**: Minimal and flexible Node.js web application framework.
-- **MongoDB**: Document-oriented NoSQL database.
-- **Mongoose**: ODM library for MongoDB and Node.js.
-- **Cloudinary**: Cloud-based service for managing images and videos.
-- **JWT (jsonwebtoken)**: Mechanism for secure information exchange.
-- **bcrypt**: Library for hashing passwords.
-- **dotenv**: Module to load environment variables from a `.env` file.
-- **multer**: Middleware for handling multipart/form-data (file uploads).
-- **nodemailer**: Module for sending emails.
+6. **Mongoose**: ODM library for MongoDB and Node.js.
+7. **Cloudinary**: Cloud-based service for managing images and videos.
+8. **JWT (jsonwebtoken)**: Mechanism for secure information exchange.
+9. **bcrypt**: Library for hashing passwords.
+10. **dotenv**: Module to load environment variables from a `.env` file.
+11. **multer**: Middleware for handling multipart/form-data (file uploads).
+12. **nodemailer**: Module for sending emails.
 
 -----
 
@@ -62,4 +54,5 @@ This is the backend API for the CNN news website, designed to provide a modern n
   "path": "^0.12.7",
   "uuid": "^9.0.1"
 }
-These can be found in my *Package.json file
+
+--------------
