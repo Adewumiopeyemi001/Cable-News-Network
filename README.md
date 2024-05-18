@@ -54,3 +54,17 @@ This is the backend API for the CNN news website, designed to provide a modern n
   "path": "^0.12.7",
   "uuid": "^9.0.1"
 }
+
+### To Start Project 
+npm i
+
+npm start
+____
+
+#### Postman Documetation
+[Postman link](https://documenter.getpostman.com/view/32389429/2sA3JT3JUX)
+-------
+
+🌱 I’m currently learning **back end web development** and a student at **At GRAZAC ACADEMY**
+
+- 📫 How to reach me **adewumiopeyemimathew@gmail.com**
