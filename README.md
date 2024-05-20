@@ -1,7 +1,4 @@
 # Cable-News-Network
-
-> Opeyemi Mathew Adewumi
-
 -----
 
 ## Project Description
@@ -67,6 +64,7 @@ ____
 
 #### Postman Documetation
 [Postman link](https://documenter.getpostman.com/view/32389429/2sA3JT3JUX)
+[MongoDB Article link](https://dev.to/adewunmi01/setting-up-mongodb-using-mongoose-in-nodejs-59fg)
 -------
 
 🌱 I’m currently learning **back end web development** and a student at **At GRAZAC ACADEMY**
